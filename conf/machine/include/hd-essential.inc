@@ -1,4 +1,10 @@
-MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += " \
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "hd-dvb-modules-${MACHINE}"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
+	kernel-module-cdfs \
+	${@bb.utils.contains('MACHINE_FEATURES', 'v3d', 'hd-v3ddriver-${MACHINE} neon' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'qtegls', 'hd-qteglfs-platform', '',d)} \
+	\
 	firmware-carl9170 \
 	firmware-htc7010 \
 	firmware-htc9271 \
