@@ -4,8 +4,6 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r0"
-
 PROVIDES = "virtual/libgles2 virtual/egl"
 DEPENDS = "hd-v3ddriver-headers"
 
