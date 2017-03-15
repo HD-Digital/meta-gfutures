@@ -1,4 +1,4 @@
-PREFERRED_VERSION_linux-hd = "4.7.6"
+PREFERRED_VERSION_linux-hd = "4.10.0"
 
 IMAGE_FSTYPES += "ubi"
 UBI_VOLNAME = "rootfs"
