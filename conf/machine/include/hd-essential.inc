@@ -2,7 +2,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "hd-dvb-modules-${MACHINE}"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	kernel-module-cdfs \
-	${@bb.utils.contains('MACHINE_FEATURES', 'v3d', 'hd-v3ddriver-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'v3d-nxpl', 'hd-v3ddriver-${MACHINE}' , '', d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'qtegls', 'hd-qteglfs-platform', '',d)} \
 	\
 	firmware-carl9170 \
