@@ -8,7 +8,6 @@ PROVIDES = "virtual/libgles2 virtual/egl"
 DEPENDS = "hd-v3ddriver-headers"
 
 PV = "${SRCDATE}"
-PR = "r1"
 
 SRC_URI = "http://downloads.mutant-digital.net/v3ddriver/${MACHINE}-v3ddriver-${SRCDATE}.zip"
 

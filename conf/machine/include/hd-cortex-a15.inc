@@ -1,4 +1,4 @@
-PREFERRED_VERSION_linux-hd = "4.10.0"
+PREFERRED_VERSION_linux-hd = "4.10.6"
 
 IMAGE_CLASSES += "hd-emmc_image_multi"
 IMAGE_FSTYPES += "hd-emmc"
