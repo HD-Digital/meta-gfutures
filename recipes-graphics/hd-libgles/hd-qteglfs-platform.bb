@@ -4,6 +4,8 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+COMPATIBLE_MACHINE = "hd51|vs1500|bre2ze4k"
+
 PR = "r1"
 
 QEGLFS = "qt5/plugins/egldeviceintegrations"
