@@ -7,7 +7,7 @@ COMPATIBLE_MACHINE = "hd+|vs+|bre2ze4k"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = ".0"
+MACHINE_KERNEL_PR_append = ".1"
 
 SRC_URI[mips.md5sum] = "3c42df14db9d12041802f4c8fec88e17"
 SRC_URI[mips.sha256sum] = "738896d2682211d2079eeaa1c7b8bdd0fe75eb90cd12dff2fc5aeb3cc02562bc"
@@ -32,6 +32,7 @@ SRC_URI_append_arm = " \
 	file://findkerneldevice.py \
 	file://reserve_dvb_adapter_0.patch \
 	file://blacklist_mmc0.patch \
+	file://export_pmpoweroffprepare.patch \
 	"
 
 S = "${WORKDIR}/linux-${PV}"
