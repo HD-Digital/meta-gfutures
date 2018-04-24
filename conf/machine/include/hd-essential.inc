@@ -14,6 +14,7 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	firmware-rtl8712u \
 	firmware-rtl8188eu \
 	firmware-rtl8192cu \
+	firmware-rtl8192eu \
 	firmware-rtl8xxxu \
 	firmware-zd1211 \
 	\
