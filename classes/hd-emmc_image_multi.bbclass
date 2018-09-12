@@ -1,8 +1,8 @@
 inherit image_types
 
-IMAGE_TYPEDEP_hd-emmc = "ext4"
+IMAGE_TYPEDEP_hdemmc = "ext4"
 
-IMAGE_DEPENDS_hd-emmc = " \
+IMAGE_DEPENDS_hdemmc = " \
     parted-native \
     dosfstools-native \
     mtools-native \
@@ -35,7 +35,7 @@ FOURTH_ROOTFS_PARTITION_OFFSET = "$(expr ${FOURTH_KERNEL_PARTITION_OFFSET} \+ ${
 EMMC_IMAGE = "${IMGDEPLOYDIR}/${IMAGE_NAME}.emmc.img"
 EMMC_IMAGE_SIZE = "3817472"
 
-IMAGE_CMD_hd-emmc () {
+IMAGE_CMD_hdemmc () {
     dd if=/dev/zero of=${EMMC_IMAGE} bs=${BLOCK_SIZE} count=0 seek=$(expr ${EMMC_IMAGE_SIZE} \* ${BLOCK_SECTOR})
     parted -s ${EMMC_IMAGE} mklabel gpt
     parted -s ${EMMC_IMAGE} unit KiB mkpart boot fat16 ${IMAGE_ROOTFS_ALIGNMENT} $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_PARTITION_SIZE})
