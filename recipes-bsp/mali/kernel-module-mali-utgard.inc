@@ -30,7 +30,7 @@ do_install() {
 
 do_install_append() {
 	install -d ${D}${sysconfdir}/modules-load.d
-	echo mali > ${D}${sysconfdir}/modules-load.d/_mali.conf
+	echo mali > ${D}${sysconfdir}/modules-load.d/mali.conf
 }
 
 FILES_${PN} += "${sysconfdir}/modules-load.d/_mali.conf"
