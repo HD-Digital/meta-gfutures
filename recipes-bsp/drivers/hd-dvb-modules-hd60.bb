@@ -1,12 +1,12 @@
 KV = "4.4.35"
-SRCDATE = "20180907"
+SRCDATE = "20180918"
 
 PROVIDES = "virtual/blindscan-dvbs"
 
 require hd-dvb-modules.inc
 
-SRC_URI[md5sum] = "f95c2dcec83af0bcfed5b958bd078e8e"
-SRC_URI[sha256sum] = "266f7f284d17de375c0e3ffb39708212a57e6d593da1919ba65837cc0a756818"
+SRC_URI[md5sum] = "4336962377af608ebd0b666e210b8a5c"
+SRC_URI[sha256sum] = "e36e973164528d774031e92a43fd687ac7c4121773320e113c963a0d734544eb"
 
 COMPATIBLE_MACHINE = "hd60"
 
@@ -21,8 +21,9 @@ do_compile_append () {
 	cat > suspend << EOF
 #!/bin/sh
 
-if [ "\$1x" == "stopx" ]
-then
+runlevel=runlevel | cut -d' ' -f2
+
+if [ "\$runlevel" != "0" ] ; then
 	exit 0
 fi
 
