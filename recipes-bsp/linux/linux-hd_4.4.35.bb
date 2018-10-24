@@ -42,9 +42,8 @@ kernel_do_install_append() {
 
 pkg_postinst_kernel-image() {
 	if [ "x$D" == "x" ]; then
-		if [ -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
-			flash_eraseall /dev/${MTD_KERNEL}
-			nandwrite -p /dev/${MTD_KERNEL} /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+		if [ -f ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
+			dd if=${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} of=/dev/mmcblk0p20
 		fi
 	fi
 	true
