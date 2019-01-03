@@ -1,7 +1,7 @@
 KV = "4.4.35"
 SRCDATE = "20181221"
 
-PROVIDES = "virtual/blindscan-dvbs"
+PROVIDES = "virtual/blindscan-dvbs virtual/blindscan-dvbc"
 
 require hd-dvb-modules.inc
 
