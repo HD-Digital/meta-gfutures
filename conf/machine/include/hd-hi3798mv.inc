@@ -1,3 +1,4 @@
+MACHINE_KERNEL_PR = "r0"
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
 # We know about rtc
@@ -38,7 +39,7 @@ DVBMEDIASINK_CONFIG = "--with-h265 --with-vb8 --with-vb9 --with-wma --with-wmv -
 MACHINE_EXTRA_RRECOMMENDS = " \
 	ffmpeg \
 	ntfs-3g \
-	"
+"
 
 MACHINE_FEATURES += " alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
 
@@ -60,8 +61,9 @@ IMAGE_CMD_hdfastboot8gb_append = " \
 	cp ${DEPLOY_DIR_IMAGE}/hd-partitions-${MACHINE}/${MACHINE}/baseparam.img ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/baseparam.img; \
 	cp ${DEPLOY_DIR_IMAGE}/hd-partitions-${MACHINE}/${MACHINE}/logo.img ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/logo.img; \
 	echo "${IMAGEVERSION}" > ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/imageversion; \
+	echo "${IMAGEVERSION}_usb.zip" > ${IMGDEPLOYDIR}/${IMAGEDIR}/unforce_${MACHINE}.txt; \
 	cd ${IMGDEPLOYDIR}/${IMAGEDIR}; \
 	zip -r ../${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_emmc.zip *; \
 	cd ..; \
 	rm -Rf ${IMAGEDIR}; \
-	"
+"

@@ -18,6 +18,7 @@ SRC_URI = "http://downloads.mutant-digital.net/linux-${PV}-${SRCDATE}-${ARCH}.ta
 	file://defconfig \
 	file://ieee80211-increase-scan-result-expire-time.patch \
 	file://0001-remote.patch \
+	file://initramfs-subdirboot.cpio.gz;unpack=0 \
 "
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
@@ -38,6 +39,11 @@ KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"
 
 FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}"
 
+kernel_do_configure_prepend() {
+    install -d ${B}/usr
+    install -m 0644 ${WORKDIR}/initramfs-subdirboot.cpio.gz ${B}/
+}
+
 kernel_do_install_append() {
 	install -d ${D}${KERNEL_IMAGEDEST}
 	install -m 0755 ${KERNEL_OUTPUT} ${D}${KERNEL_IMAGEDEST}
@@ -46,7 +52,7 @@ kernel_do_install_append() {
 pkg_postinst_kernel-image() {
 	if [ "x$D" == "x" ]; then
 		if [ -f ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
-			dd if=${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} of=/dev/mmcblk0p20
+			dd if=${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} of=/dev/mmcblk0p19
 		fi
 	fi
 	true
