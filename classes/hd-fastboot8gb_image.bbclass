@@ -56,7 +56,6 @@ IMAGE_CMD_hdfastboot8gb () {
     mcopy -i ${WORKDIR}/bootoptions.img -v ${WORKDIR}/STARTUP_LINUX_3 ::
     mcopy -i ${WORKDIR}/bootoptions.img -v ${WORKDIR}/STARTUP_LINUX_4 ::
     mcopy -i ${WORKDIR}/bootoptions.img -v ${WORKDIR}/STARTUP_RECOVERY ::
-    mcopy -i ${WORKDIR}/bootoptions.img -v ${WORKDIR}/STARTUP_ONCE ::
     mcopy -i ${WORKDIR}/bootoptions.img -v ${WORKDIR}/bootmenu.conf ::
     cp ${WORKDIR}/bootoptions.img ${IMGDEPLOYDIR}/bootoptions.img
     ext2simg -zv ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.ext4 ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.hdfastboot8gb.gz
