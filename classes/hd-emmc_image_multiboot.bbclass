@@ -46,23 +46,23 @@ IMAGE_CMD_hdemmc () {
     dd if=/dev/zero of=${WORKDIR}/boot.img bs=${BLOCK_SIZE} count=$(expr ${BOOT_PARTITION_SIZE} \* ${BLOCK_SECTOR})
     mkfs.msdos -S 512 ${WORKDIR}/boot.img
     echo "boot emmcflash0.kernel1 'root=/dev/mmcblk0p3 rootsubdir=linuxrootfs1 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP
-    echo "boot emmcflash0.kernel1 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs1 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_BOOTSLOT_1_MODE_1
-    echo "boot emmcflash0.kernel2 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs2 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_BOOTSLOT_2_MODE_1
-    echo "boot emmcflash0.kernel3 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs3 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_BOOTSLOT_3_MODE_1
-    echo "boot emmcflash0.kernel4 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs4 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_BOOTSLOT_4_MODE_1
-    echo "boot emmcflash0.kernel1 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p3 rootsubdir=linuxrootfs1 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_BOOTSLOT_1_MODE_12
-    echo "boot emmcflash0.kernel2 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p7 rootsubdir=linuxrootfs2 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_BOOTSLOT_2_MODE_12
-    echo "boot emmcflash0.kernel3 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p7 rootsubdir=linuxrootfs3 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_BOOTSLOT_3_MODE_12
-    echo "boot emmcflash0.kernel4 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p7 rootsubdir=linuxrootfs4 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_BOOTSLOT_4_MODE_12
+    echo "boot emmcflash0.kernel1 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs1 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_LINUX_1_BOXMODE_1
+    echo "boot emmcflash0.kernel2 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs2 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_LINUX_2_BOXMODE_1
+    echo "boot emmcflash0.kernel3 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs3 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_LINUX_3_BOXMODE_1
+    echo "boot emmcflash0.kernel4 'root=/dev/mmcblk0p7 rootsubdir=linuxrootfs4 rw rootwait ${MACHINE}_4.boxmode=1'" > ${WORKDIR}/STARTUP_LINUX_4_BOXMODE_1
+    echo "boot emmcflash0.kernel1 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p3 rootsubdir=linuxrootfs1 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_LINUX_1_BOXMODE_12
+    echo "boot emmcflash0.kernel2 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p7 rootsubdir=linuxrootfs2 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_LINUX_2_BOXMODE_12
+    echo "boot emmcflash0.kernel3 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p7 rootsubdir=linuxrootfs3 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_LINUX_3_BOXMODE_12
+    echo "boot emmcflash0.kernel4 'brcm_cma=520M@248M brcm_cma=192M@768M root=/dev/mmcblk0p7 rootsubdir=linuxrootfs4 rw rootwait ${MACHINE}_4.boxmode=12'" > ${WORKDIR}/STARTUP_LINUX_4_BOXMODE_12
     mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_1_MODE_1 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_2_MODE_1 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_3_MODE_1 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_4_MODE_1 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_1_MODE_12 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_2_MODE_12 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_3_MODE_12 ::
-    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_BOOTSLOT_4_MODE_12 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_1_BOXMODE_1 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_2_BOXMODE_1 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_3_BOXMODE_1 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_4_BOXMODE_1 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_1_BOXMODE_12 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_2_BOXMODE_12 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_3_BOXMODE_12 ::
+    mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_LINUX_4_BOXMODE_12 ::
     dd conv=notrunc if=${WORKDIR}/boot.img of=${EMMC_IMAGE} bs=${BLOCK_SIZE} seek=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* ${BLOCK_SECTOR})
     dd conv=notrunc if=${DEPLOY_DIR_IMAGE}/zImage of=${EMMC_IMAGE} bs=${BLOCK_SIZE} seek=$(expr ${KERNEL_PARTITION_OFFSET} \* ${BLOCK_SECTOR})
     dd if=${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ext4 of=${EMMC_IMAGE} bs=${BLOCK_SIZE} seek=$(expr ${ROOTFS_PARTITION_OFFSET} \* ${BLOCK_SECTOR})
