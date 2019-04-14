@@ -5,18 +5,26 @@
 # Required-Stop:      $local_fs
 # Default-Start:      S
 # Default-Stop:
-# Short-Description:  Resizes once /dev/mmcblk0p3 to full partition size
+# Short-Description:  Resizes once linuxrootfs and userdata to full partition size
 ### END INIT INFO
 
-if [ ! -f "/.resizerootfs" ]
-then
-  rootdevice=$(readlink /dev/root)
-  if [ "$rootdevice" = "mmcblk0p3" ]
+if [ ! -f "/.resize-linuxrootfs" ] & [ -e "/dev/block/by-name/linuxrootfs" ]
   then
-    echo "Resizing /dev/mmcblk0p3, Do not unplug power!..."
-    resize2fs /dev/mmcblk0p3
-    touch "/.resizerootfs"
-  fi
+    echo "Resizing linuxrootfs partition, Do not unplug power!..."
+    resize2fs /dev/block/by-name/linuxrootfs
+    touch "/.resize-linuxrootfs"
 fi
 
+if [ ! -f "/.resize-userdata" ] & [ -e "/dev/block/by-name/userdata" ] & [ -e "/sbin/blkid" ]; then
+  if blkid /dev/block/by-name/userdata | grep "ext4"; then
+    echo "Resizing userdata partition, Do not unplug power!..."
+    resize2fs /dev/block/by-name/userdata
+    touch "/.resize-userdata"
+  else
+    echo "userdata partition is not format!..."
+    echo "Setup userdata partitions, Do not unplug power!..."
+    mkfs.ext4 -F /dev/block/by-name/userdata
+    touch "/.resize-userdata"
+  fi
+fi
 : exit 0
