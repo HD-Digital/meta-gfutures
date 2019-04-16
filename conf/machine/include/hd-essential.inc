@@ -1,6 +1,6 @@
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 	hd-dvb-modules-${MACHINE} \
-	${@bb.utils.contains('MACHINE_FEATURES', 'hisil', 'hd-libs-${MACHINE} hd-partitions-${MACHINE} hd-bootargs-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'hisil', 'hd-libs-${MACHINE} hd-partitions-${MACHINE} hd-bootargs-${MACHINE} hd-recovery-${MACHINE}' , '', d)} \
 	"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
@@ -8,6 +8,7 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	${@bb.utils.contains('MACHINE_FEATURES', 'v3d-nxpl', 'hd-v3ddriver-${MACHINE}' , '', d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'qtegls', 'hd-qteglfs-platform', '',d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'mali', 'hd-mali-${MACHINE} kernel-module-mali-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'emmc', 'resizerootfs partitions-by-name' , '', d)} \
 	\
 	firmware-carl9170 \
 	firmware-htc7010 \

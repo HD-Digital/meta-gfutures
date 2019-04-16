@@ -26,6 +26,7 @@ RPROVIDES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_PACKAGE_NAME}-image-${KERNEL_
 
 SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}-${ARCH}.tar.gz;name=${ARCH} \
 	file://defconfig \
+	file://initramfs-subdirboot.cpio.gz;unpack=0 \
 	"
 
 SRC_URI_append_arm = " \
@@ -75,6 +76,11 @@ KERNEL_IMAGETYPE_arm = "zImage"
 KERNEL_IMAGEDEST_arm = "tmp"
 
 FILES_${KERNEL_PACKAGE_NAME}-image_arm = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} /${KERNEL_IMAGEDEST}/findkerneldevice.py"
+
+kernel_do_configure_prepend_arm() {
+    install -d ${B}/usr
+    install -m 0644 ${WORKDIR}/initramfs-subdirboot.cpio.gz ${B}/
+}
 
 kernel_do_install_append_arm() {
         install -d ${D}/${KERNEL_IMAGEDEST}
