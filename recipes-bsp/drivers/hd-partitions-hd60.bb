@@ -1,8 +1,0 @@
-SRCDATE = "20190329"
-
-require hd-partitions.inc
-
-SRC_URI[md5sum] = "936935da29e745a21ac4236f9bf0a2f2"
-SRC_URI[sha256sum] = "0f6fd17991adb8524d067c3c4053026fd2703970df0d889fbfabb833c3314e31"
-
-COMPATIBLE_MACHINE = "hd60"
