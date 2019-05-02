@@ -34,6 +34,7 @@ SRC_URI_append_arm = " \
 	file://reserve_dvb_adapter_0.patch \
 	file://blacklist_mmc0.patch \
 	file://export_pmpoweroffprepare.patch \
+	file://enable_hauppauge_solohd.patch \
 "
 
 S = "${WORKDIR}/linux-${PV}"
