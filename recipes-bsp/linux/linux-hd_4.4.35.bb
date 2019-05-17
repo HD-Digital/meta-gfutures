@@ -9,7 +9,7 @@ SRCDATE = "20181228"
 COMPATIBLE_MACHINE = "(hd60|hd61)"
 
 inherit kernel machine_kernel_pr
-MACHINE_KERNEL_PR_append = ".4"
+MACHINE_KERNEL_PR_append = ".5"
 
 SRC_URI[arm.md5sum] = "ede25f1c2c060f1059529a2896cee5a9"
 SRC_URI[arm.sha256sum] = "ea4ba0433d252c18f38ff2f4dce4b70880e447e1cffdc2066d5a9b5f8098ae7e"
