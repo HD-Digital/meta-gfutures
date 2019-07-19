@@ -1,0 +1,8 @@
+SRCDATE = "20190605"
+
+require hd-bootargs.inc
+
+SRC_URI[md5sum] = "7d03366b7d555ddaec79dcef6028af22"
+SRC_URI[sha256sum] = "1d7e65008a58df347a5d74729253052c473c5b11432022acad2d55b787428176"
+
+COMPATIBLE_MACHINE = "hd61"

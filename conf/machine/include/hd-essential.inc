@@ -23,6 +23,9 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	firmware-rtl8xxxu \
 	firmware-zd1211 \
 	\
+	rtl8192eu \
+	rtl8822bu \
+	\
 	kernel-module-ath9k-htc \
 	kernel-module-carl9170 \
 	kernel-module-mt7601u \
