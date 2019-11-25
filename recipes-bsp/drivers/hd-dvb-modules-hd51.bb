@@ -1,6 +1,8 @@
 KV = "4.10.12"
 SRCDATE = "20191101"
 
+PROVIDES = "virtual/blindscan-dvbs"
+
 require hd-dvb-modules.inc
 
 SRC_URI[md5sum] = "59e24f9ab60a50480fc31b43c8bacd48"
