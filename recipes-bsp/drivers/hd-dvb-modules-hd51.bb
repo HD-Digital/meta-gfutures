@@ -1,9 +1,11 @@
 KV = "4.10.12"
-SRCDATE = "20180424"
+SRCDATE = "20191120"
+
+PROVIDES = "virtual/blindscan-dvbs"
 
 require hd-dvb-modules.inc
 
-SRC_URI[md5sum] = "76469b236edf0d1e769c7af07198a77d"
-SRC_URI[sha256sum] = "ed22c156f5a62e6dd68801c4f40d8f2b9d537ade4ed58eb26745111bb8cacd20"
+SRC_URI[md5sum] = "3d83212c98a50ecd26937fded6b7ccb2"
+SRC_URI[sha256sum] = "e4d4e2023d072bdba217cbcad0ef67f99dc4b3161c19567e858f584ccdfc2aa3"
 
 COMPATIBLE_MACHINE = "hd51"
