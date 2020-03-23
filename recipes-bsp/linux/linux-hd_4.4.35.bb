@@ -9,7 +9,7 @@ SRCDATE = "20200219"
 COMPATIBLE_MACHINE = "(hd41|hd60|hd61)"
 
 inherit kernel machine_kernel_pr
-MACHINE_KERNEL_PR_append = ".8"
+MACHINE_KERNEL_PR_append = ".9"
 
 SRC_URI[arm.md5sum] = "f9e67e2d0ceab518510413f8f4315bc3"
 SRC_URI[arm.sha256sum] = "45ae717b966a74326fd7297d81b3a17fd5b3962b7704170682a615ca7cdec644"
@@ -25,6 +25,7 @@ SRC_URI = "http://downloads.mutant-digital.net/linux-${PV}-${SRCDATE}-${ARCH}.ta
 	file://findkerneldevice.sh \
 	file://0002-log2-give-up-on-gcc-constant-optimizations.patch \
 	file://0003-dont-mark-register-as-const.patch \
+	file://0004-linux-fix-buffer-size-warning-error.patch \
 "
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
