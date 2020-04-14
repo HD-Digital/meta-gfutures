@@ -6,10 +6,10 @@ VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
 KERNEL_RELEASE = "4.4.35"
 SRCDATE = "20200219"
-COMPATIBLE_MACHINE = "(hd41|hd60|hd61)"
+COMPATIBLE_MACHINE = "(hd31|hd41|hd60|hd61)"
 
 inherit kernel machine_kernel_pr
-MACHINE_KERNEL_PR_append = ".8"
+MACHINE_KERNEL_PR_append = ".9"
 
 SRC_URI[arm.md5sum] = "f9e67e2d0ceab518510413f8f4315bc3"
 SRC_URI[arm.sha256sum] = "45ae717b966a74326fd7297d81b3a17fd5b3962b7704170682a615ca7cdec644"
@@ -25,6 +25,7 @@ SRC_URI = "http://downloads.mutant-digital.net/linux-${PV}-${SRCDATE}-${ARCH}.ta
 	file://findkerneldevice.sh \
 	file://0002-log2-give-up-on-gcc-constant-optimizations.patch \
 	file://0003-dont-mark-register-as-const.patch \
+	file://0004-linux-fix-buffer-size-warning-error.patch \
 "
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
@@ -43,6 +44,7 @@ KERNEL_IMAGEDEST = "tmp"
 KERNEL_IMAGETYPE = "uImage"
 KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"
 
+FILES_kernel-image_hd31 = " "
 FILES_kernel-image_hd41 = " "
 FILES_kernel-image = "/${KERNEL_IMAGEDEST}/findkerneldevice.sh"
 
@@ -51,12 +53,25 @@ kernel_do_configure_prepend() {
     install -m 0644 ${WORKDIR}/initramfs-subdirboot.cpio.gz ${B}/
 }
 
+kernel_do_install_append_hd31() {
+}
+
 kernel_do_install_append_hd41() {
 }
 
 kernel_do_install_append() {
 	install -d ${D}/${KERNEL_IMAGEDEST}
 	install -m 0755 ${WORKDIR}/findkerneldevice.sh ${D}/${KERNEL_IMAGEDEST}
+}
+
+pkg_postinst_kernel-image_hd31() {
+	if [ "x$D" == "x" ]; then
+		if [ -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
+			flash_eraseall /dev/${MTD_KERNEL}
+			nandwrite -p /dev/${MTD_KERNEL} /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+		fi
+	fi
+	true
 }
 
 pkg_postinst_kernel-image_hd41() {

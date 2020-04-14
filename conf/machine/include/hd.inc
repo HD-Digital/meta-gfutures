@@ -28,6 +28,11 @@ DVBMEDIASINK_CONFIG_mipsel = "--with-wma --with-wmv --with-pcm --with-dts --with
 	${@bb.utils.contains('MACHINE_FEATURES', 'h265', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
 	"
 EXTRA_OECONF_append_pn-kodi = " --with-gpu=v3d"
+EXTRA_OECMAKE_append_pn-kodi_hd51 += "-DWITH_PLATFORM=v3d-cortexa15"
+EXTRA_OECMAKE_append_pn-kodi_bre2ze4k += "-DWITH_PLATFORM=v3d-cortexa15"
+EXTRA_OECMAKE_append_pn-kodi_vs1500 += "-DWITH_PLATFORM=v3d-cortexa15"
+EXTRA_OECMAKE_append_pn-kodi_hd2400 += "-DWITH_PLATFORM=v3d-mipsel"
+
 PACKAGECONFIG_GL_pn-qtbase = " "
 PACKAGECONFIG_append_pn-qtbase += " gles2 linuxfb"
 
