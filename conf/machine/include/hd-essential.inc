@@ -1,6 +1,7 @@
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 	hd-dvb-modules-${MACHINE} \
-	${@bb.utils.contains('MACHINE_FEATURES', 'hisil', 'hd-libs-${MACHINE} hd-partitions-${MACHINE} hd-bootargs-${MACHINE} hd-recovery-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'hisil', 'hd-libs-${MACHINE} hd-partitions-${MACHINE} hd-bootargs-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'hisil emmc', 'hd-recovery-${MACHINE}' , '', d)} \
 	"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
