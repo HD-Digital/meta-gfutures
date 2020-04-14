@@ -6,7 +6,7 @@ VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
 KERNEL_RELEASE = "4.4.35"
 SRCDATE = "20200219"
-COMPATIBLE_MACHINE = "(hd41|hd60|hd61)"
+COMPATIBLE_MACHINE = "(hd31|hd41|hd60|hd61)"
 
 inherit kernel machine_kernel_pr
 MACHINE_KERNEL_PR_append = ".9"
@@ -44,6 +44,7 @@ KERNEL_IMAGEDEST = "tmp"
 KERNEL_IMAGETYPE = "uImage"
 KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"
 
+FILES_kernel-image_hd31 = " "
 FILES_kernel-image_hd41 = " "
 FILES_kernel-image = "/${KERNEL_IMAGEDEST}/findkerneldevice.sh"
 
@@ -52,12 +53,25 @@ kernel_do_configure_prepend() {
     install -m 0644 ${WORKDIR}/initramfs-subdirboot.cpio.gz ${B}/
 }
 
+kernel_do_install_append_hd31() {
+}
+
 kernel_do_install_append_hd41() {
 }
 
 kernel_do_install_append() {
 	install -d ${D}/${KERNEL_IMAGEDEST}
 	install -m 0755 ${WORKDIR}/findkerneldevice.sh ${D}/${KERNEL_IMAGEDEST}
+}
+
+pkg_postinst_kernel-image_hd31() {
+	if [ "x$D" == "x" ]; then
+		if [ -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
+			flash_eraseall /dev/${MTD_KERNEL}
+			nandwrite -p /dev/${MTD_KERNEL} /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+		fi
+	fi
+	true
 }
 
 pkg_postinst_kernel-image_hd41() {
