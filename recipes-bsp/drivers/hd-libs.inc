@@ -6,6 +6,8 @@ PR = "${SRCDATE}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
+RDEPENDS_${PN} += " libcrypto-compat"
+
 SRC_URI = "http://downloads.mutant-digital.net/${MACHINE}/${MACHINE}-libs${VER}-${SRCDATE}.zip"
 
 S = "${WORKDIR}"
@@ -27,7 +29,6 @@ do_install() {
 	if [ "${GLIBCVERSION}" = "2.25" ]; then
 		install -m 0755 ${S}/glibc/* ${D}${libdir}/hisilicon
 	else
-		install -d ${D}/lib
 		ln -sf /lib/ld-linux-armhf.so.3 ${D}${libdir}/hisilicon/ld-linux.so
 	fi
 }
