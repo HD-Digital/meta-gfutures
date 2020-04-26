@@ -2,7 +2,7 @@ SRCDATE = "20200424"
 
 require hd-bootargs.inc
 
-SRC_URI[md5sum] = "87ee164924d865a808bf01f80e4faee1"
-SRC_URI[sha256sum] = "1bfd0c0b45d0de739a894917b659b74372e4b35e10189cd642577df277ab083e"
+SRC_URI[md5sum] = "1a9d72e1965ac54e2fe1d544ec8274b6"
+SRC_URI[sha256sum] = "08f6a83f210b3f11422a2a29b8baeb9f6ffd39de7429b8acea69417f41035eab"
 
 COMPATIBLE_MACHINE = "hd61"
