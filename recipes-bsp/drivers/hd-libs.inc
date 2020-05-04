@@ -6,8 +6,6 @@ PR = "${SRCDATE}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
-RDEPENDS_${PN} += " libcrypto-compat"
-
 SRC_URI = "http://downloads.mutant-digital.net/${MACHINE}/${MACHINE}-libs${VER}-${SRCDATE}.zip"
 
 S = "${WORKDIR}"
