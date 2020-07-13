@@ -2,14 +2,13 @@ DESCRIPTION = "Hardware drivers for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PV = "${KV}+${SRCDATE}"
 
 SRC_URI = "http://downloads.mutant-digital.net/${MACHINE}/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
 
 S = "${WORKDIR}"
-
-inherit module
 
 INITSCRIPT_NAME = "suspend"
 INITSCRIPT_PARAMS = "start 89 0 ."
@@ -61,7 +60,10 @@ pkg_prerm_${PN}() {
 do_package_qa() {
 }
 
-FILES_${PN} += "${sysconfdir}/modules-load.d/${MACHINE}.conf ${bindir} ${sysconfdir}/init.d"
+FILES_${PN} += "${sysconfdir}/modules-load.d/${MACHINE}.conf ${bindir} ${sysconfdir}/init.d ${base_libdir}/modules/${KV}/extra"
 
 INSANE_SKIP_${PN} += "already-stripped"
 INHIBIT_PACKAGE_STRIP = "1"
+
+RREPLACES_${PN} = "kernel-module-${MACHINE}-1-4.4.35 kernel-module-${MACHINE}-2-4.4.35 kernel-module-${MACHINE}-3-4.4.35 kernel-module-${MACHINE}-4-4.4.35 kernel-module-hi-play-4.4.35"
+RCONFLICTS_${PN} = "kernel-module-${MACHINE}-1-4.4.35 kernel-module-${MACHINE}-2-4.4.35 kernel-module-${MACHINE}-3-4.4.35 kernel-module-${MACHINE}-4-4.4.35 kernel-module-hi-play-4.4.35"
