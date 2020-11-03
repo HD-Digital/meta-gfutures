@@ -78,3 +78,7 @@ IMAGE_CMD_hdfastboot8gb_append = " \
 	cd ..; \
 	rm -Rf ${IMAGEDIR}; \
 "
+
+IMAGE_CMD_prepend = "\
+	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
+	"
