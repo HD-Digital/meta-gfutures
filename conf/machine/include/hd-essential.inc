@@ -41,3 +41,5 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	kernel-module-rtl8xxxu \
 	kernel-module-zd1211rw \
 	"
+
+BOX_BRAND = "gfutures"

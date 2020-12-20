@@ -40,7 +40,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 	ntfs-3g \
 "
 
-MACHINE_FEATURES += " alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
+MACHINE_FEATURES += " alsa usbhost wlan 3dtv switchoff osdposition hdmicec wol HDMI"
 
 IMAGEVERSION := "${DISTRO_NAME}-${DISTRO_VERSION}-${DATE}"
 IMAGEVERSION[vardepsexclude] = "DATE"
@@ -82,3 +82,12 @@ IMAGE_CMD_hdfastboot8gb_append = " \
 IMAGE_CMD_prepend = "\
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
+
+SOC_FAMILY = "hisi3798mv200"
+
+KERNEL_FILE = "uImage"
+ROOTFS_FILE = "rootfs.tar.bz2"
+MTD_BOOTFS = "mmcblk0p4"
+MTD_BLACK  = "mmcblk0"
+
+STB_PLATFORM = "gfutureshisil"
