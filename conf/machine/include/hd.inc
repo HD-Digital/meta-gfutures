@@ -16,7 +16,7 @@ PREFERRED_PROVIDER_virtual/libgl ?= "mesa"
 PREFERRED_PROVIDER_virtual/mesa ?= "mesa"
 PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
 
-MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
+MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec HDMI"
 
 MACHINE_EXTRA_RRECOMMENDS = " \
 	gst-plugin-dvbmediasink \
@@ -69,3 +69,6 @@ IMAGE_CMD_ubi_append_mipsel = " \
 IMAGE_CMD_prepend = "\
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
+
+RCTYPE ?= "16"
+RCNAME ?= "hd1100"

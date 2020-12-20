@@ -8,3 +8,8 @@ DEFAULTTUNE ?= "mips32el"
 
 require conf/machine/include/tune-mips32.inc
 require conf/machine/include/hd.inc
+
+MTD_KERNEL = "mtd1"
+MTD_ROOTFS = "mtd2"
+KERNEL_FILE = "kernel.bin"
+ROOTFS_FILE = "rootfs.bin"
