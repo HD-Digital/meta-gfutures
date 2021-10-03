@@ -6,7 +6,8 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	kernel-module-cdfs \
-	${@bb.utils.contains('MACHINE_FEATURES', 'v3d-nxpl', 'hd-v3ddriver-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'v3d-mipsel', 'hd-v3ddriver-${MACHINE}' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'v3d-cortexa15', 'hd-v3ddriver-${MACHINE}' , '', d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'qtegls', 'hd-qteglfs-platform', '',d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'mali', 'hd-mali-${MACHINE} kernel-module-mali-${MACHINE}' , '', d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'emmc', 'resizerootfs partitions-by-name' , '', d)} \
