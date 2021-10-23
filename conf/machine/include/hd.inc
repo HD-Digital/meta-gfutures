@@ -27,8 +27,6 @@ DVBMEDIASINK_CONFIG_arm = "--with-h265 --with-vb8 --with-vb9 --with-wma --with-w
 DVBMEDIASINK_CONFIG_mipsel = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
 	${@bb.utils.contains('MACHINE_FEATURES', 'h265', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
 	"
-EXTRA_OECONF_append_pn-kodi = " --with-gpu=v3d"
-EXTRA_OECMAKE_append_pn-kodi += " -DWITH_V3D=nxpl"
 
 PACKAGECONFIG_GL_pn-qtbase = " "
 PACKAGECONFIG_append_pn-qtbase += " gles2 linuxfb"
