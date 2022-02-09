@@ -6,7 +6,7 @@ VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
 KERNEL_RELEASE = "4.4.35"
 SRCDATE = "20200219"
-COMPATIBLE_MACHINE = "(hd31|hd41|hd60|hd61)"
+COMPATIBLE_MACHINE = "(hd31|hd41|hd60|hd61|hd66se)"
 
 inherit kernel machine_kernel_pr
 MACHINE_KERNEL_PR_append = ".9"
