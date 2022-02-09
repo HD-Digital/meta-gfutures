@@ -2,7 +2,7 @@ SRCDATE = "20220208"
 
 require hd-partitions.inc
 
-SRC_URI[md5sum] = "0643590211ee88b343deb18047e58d42"
-SRC_URI[sha256sum] = "2d2de9be68a4747c992da86e5ea5ed752ff4e0870ba0c63f675b5ef00961bee5"
+SRC_URI[md5sum] = "ab0b645a5580e6fe2f4fbd8d6a6948c8"
+SRC_URI[sha256sum] = "603cc281b606d8fba4fb081cc9015395c84314b7cc364e2d8d1c97b7e7408536"
 
 COMPATIBLE_MACHINE = "hd66se"
