@@ -1,11 +1,11 @@
 KV = "4.4.35"
-SRCDATE = "20200622"
+SRCDATE = "20220208"
 
 PROVIDES = "virtual/blindscan-dvbs"
 
 require hd-dvb-modules-hisil.inc
 
-SRC_URI[md5sum] = "71727df0e1354442c069d86c4cbb2c83"
-SRC_URI[sha256sum] = "5c8278a7676f49a4777cf25117f0c66ca349ae6661dbf5daf62c9ff0a319b385"
+SRC_URI[md5sum] = "4c302524e26f96fb5003279e8e933bb7"                                
+SRC_URI[sha256sum] = "4732198334f37767e5ae8aa14ad7fadc7051ff634a0968876260322abc350892"
 
 COMPATIBLE_MACHINE = "hd60"

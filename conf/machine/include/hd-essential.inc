@@ -19,14 +19,18 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	firmware-rt2870 \
 	firmware-rt73 \
 	firmware-rtl8712u \
+	firmware-rtl8723bu \
 	firmware-rtl8188eu \
 	firmware-rtl8192cu \
 	firmware-rtl8192eu \
 	firmware-rtl8xxxu \
 	firmware-zd1211 \
 	\
-	rtl8192eu \
-	rtl8822bu \
+	kernel-module-8192eu \
+	kernel-module-8192fu \
+	kernel-module-8723bu \
+	kernel-module-88x2bu \
+	kernel-module-8821cu \
 	\
 	kernel-module-ath9k-htc \
 	kernel-module-carl9170 \
